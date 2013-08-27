@@ -2,8 +2,8 @@ Package: splitstackshape
 Type: Package
 Title: Functions to split concatenated data, conveniently stack columns
         of data.frames, and conveniently reshape data.frames.
-Version: 1.0
-Date: 2013-08-12
+Version: 1.2.0
+Date: 2013-08-27
 Author: Ananda Mahto
 Maintainer: Ananda Mahto <ananda@mahto.info>
 Description: Online data collection tools like Google Forms often export
@@ -21,8 +21,8 @@ URL: http://github.com/mrdwab/splitstackshape
 BugReports: http://github.com/mrdwab/splitstackshape/issues
 Collate: 'concat.split.R' 'Reshape.R'
         'splitstackshape_helper_functions.R'
-        'splitstackshape-package.R' 'Stacked.R'
-Packaged: 2013-08-13 02:31:46 UTC; mrdwab
+        'splitstackshape-package.R' 'Stacked.R' 'getanID.R'
+Packaged: 2013-08-27 16:52:06 UTC; mrdwab
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2013-08-13 07:02:13
+Date/Publication: 2013-08-27 19:16:31

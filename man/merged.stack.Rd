@@ -33,11 +33,9 @@
   \code{list} into a single \code{data.table}.
 }
 \note{
-  This is not a particularly fast function. It was the
-  original concept for \code{\link{Reshape}}, but
-  \code{Reshape} will generally be \emph{much} faster
-  because neither \code{\link{Reduce}} nor \code{merge} are
-  particularly fast.
+  The \code{keyed} argument to \code{\link{Stacked}} has
+  been hard- coded to \code{TRUE} to make \code{merge}
+  work.
 }
 \examples{
 set.seed(1)

@@ -1,4 +1,5 @@
 
+
 #' Example dataset with concatenated cells
 #' 
 #' This is a sample dataset to demonstrate the different features of the
@@ -12,13 +13,17 @@
 #' @keywords datasets
 NULL
 
+
+
+
+
 #' splitstackshape
 #' 
 #' Functions to split concatenated data, conveniently stack columns of
 #' \code{data.frame}s, and conveniently reshape \code{data.frame}s.
 #' 
 #' \tabular{ll}{ Package: \tab splitstackshape\cr Type: \tab Package\cr
-#' Version: \tab 1.0\cr Date: \tab 2013-08-12\cr License: \tab GPL-3\cr }
+#' Version: \tab 1.2.0\cr Date: \tab 2013-08-27\cr License: \tab GPL-3\cr }
 #' 
 #' Online data collection tools like Google Forms often export
 #' multiple-response questions with data concatenated in cells. The
@@ -44,24 +49,57 @@ NULL
 #' 
 #' ## Reshape
 #' set.seed(1)
-#' mydf <- data.frame(id_1 = 1:6, id_2 = c("A", "B"), 
+#' mydf <- data.frame(id_1 = 1:6, id_2 = c("A", "B"),
 #'                    varA.1 = sample(letters, 6),
-#'                    varA.2 = sample(letters, 6), 
+#'                    varA.2 = sample(letters, 6),
 #'                    varA.3 = sample(letters, 6),
-#'                    varB.2 = sample(10, 6), 
+#'                    varB.2 = sample(10, 6),
 #'                    varB.3 = sample(10, 6),
 #'                    varC.3 = rnorm(6))
 #' mydf
 #' Reshape(mydf, id.vars = c("id_1", "id_2"),
 #'         var.stubs = c("varA", "varB", "varC"))
-#'
+#' 
 #' ## Stacked
 #' Stacked(data = mydf, id.vars = c("id_1", "id_2"),
 #'         var.stubs = c("varA", "varB", "varC"),
 #'         sep = "\\.")
-#'         
+#' \dontrun{
+#' ## Processing times
+#' set.seed(1)
+#' Nrow <- 1000000
+#' Ncol <- 10
+#' mybigdf <- cbind(id = 1:Nrow, as.data.frame(matrix(rnorm(Nrow*Ncol), 
+#'                                                    nrow=Nrow)))
+#' head(mybigdf)
+#' dim(mybigdf)
+#' tail(mybigdf)
+#' A <- names(mybigdf)
+#' names(mybigdf) <- c("id", paste("varA", 1:3, sep = "_"), 
+#'                     paste("varB", 1:4, sep = "_"), 
+#'                     paste("varC", 1:3, sep = "_"))
+#' system.time({
+#'    O1 <- Reshape(mybigdf, id.vars = "id", 
+#'    var.stubs = c("varA", "varB", "varC"), sep = "_")
+#'    O1 <- O1[order(O1$id, O1$time), ]
+#' })
+#' system.time({
+#'    O2 <- merged.stack(mybigdf, id.vars="id", 
+#'    var.stubs=c("varA", "varB", "varC"), sep = "_")
+#' })
+#' system.time({
+#'    O3 <- Stacked(mybigdf, id.vars="id", 
+#'    var.stubs=c("varA", "varB", "varC"), sep = "_")
+#' })
+#' DT <- data.table(mybigdf)
+#' system.time({
+#'    O4 <- merged.stack(DT, id.vars="id", 
+#'    var.stubs=c("varA", "varB", "varC"), sep = "_")
+#' })
+#' }
+#' 
 #' \dontshow{rm(mydf)}
-#'   
+#' 
 NULL
 
 

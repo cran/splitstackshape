@@ -1,10 +1,10 @@
 Package: splitstackshape
 Type: Package
 Title: Stack and Reshape Datasets After Splitting Concatenated Values
-Version: 1.4.4
-Date: 2018-03-29
+Version: 1.4.6
+Date: 2018-07-22
 Author: Ananda Mahto
-Maintainer: Ananda Mahto <ananda@mahto.info>
+Maintainer: Ananda Mahto <mrdwab@gmail.com>
 Description: Online data collection tools like Google Forms often export
     multiple-response questions with data concatenated in cells. The
     concat.split (cSplit) family of functions splits such data into separate 
@@ -20,7 +20,8 @@ Imports: data.table (>= 1.9.4)
 URL: http://github.com/mrdwab/splitstackshape
 BugReports: http://github.com/mrdwab/splitstackshape/issues
 RoxygenNote: 6.0.1
+Suggests: covr, testthat
 NeedsCompilation: no
-Packaged: 2018-03-29 18:36:19 UTC; mrdwab
+Packaged: 2018-07-22 18:44:55 UTC; mrdwab
 Repository: CRAN
-Date/Publication: 2018-03-29 20:07:52 UTC
+Date/Publication: 2018-07-23 07:30:06 UTC

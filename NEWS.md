@@ -9,6 +9,10 @@ BugReports        : http://github.com/mrdwab/splitstackshape/issues
 
 ---------------------------------------------------------------------
 
+## 1.4.8
+
+Updated to pass CRAN tests due to changes in the RNG sample kinds.
+
 ## 1.4.6
 
 22 July 2018
